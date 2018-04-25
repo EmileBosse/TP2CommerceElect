@@ -1,0 +1,11 @@
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.deps.json
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.runtimeconfig.json
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.runtimeconfig.dev.json
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.dll
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.pdb
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.csprojResolveAssemblyReference.cache
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.csproj.CoreCompileInputs.cache
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.AssemblyInfoInputs.cache
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.AssemblyInfo.cs
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.dll
+C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.pdb

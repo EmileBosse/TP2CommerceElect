@@ -2,7 +2,7 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
+<!--div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="6000">
     <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
@@ -63,7 +63,7 @@
         <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
+</!--div>
 
 <div class="row">
     <div class="col-md-3">
@@ -103,4 +103,63 @@
             <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
         </ul>
     </div>
+</div -->
+<style>
+    .participant:hover {
+        border:solid;
+    }
+</style>
+<div>
+    <div id="FirstHomeView">
+        il faudra penser à une interface.<br />
+        le caroussel<br />
+        et le gros btn<br />
+        <button style="background-color:green;color:white" id="createTournement">
+            Créer votre premier tournoi !
+        </button>
+    </div>
+    <div id="SecondHomeView" hidden>
+        <div class="row">
+            <div class="col-md-4">
+                <form action="">
+                    <input type="radio" name="type" value="RoundRobin"> Round Robin<br>
+                    <input type="radio" name="type" value="SimpleElimination"> Simple Élimination<br>
+                    <input type="radio" name="type" value="DoubleElimination" disabled> Double Élimination
+                </form>
+            </div>
+            <div class="col-md-8" style="height:100px;overflow-y:scroll">
+                <table>
+                    <tr>
+                        <th>Nom Prénom</th>
+                    </tr>
+                    @foreach (WebApplication.Models.Participant participant in ViewData["Participants"] as List<WebApplication.Models.Participant>)
+                    {
+                        <tr><td><a asp-area="" asp-controller="Home" asp-action="VoirParticipant/@participant.numero">@participant.Nom @participant.Prenom</a><td/></tr>
+                    }
+                    <tr class="participant">
+                        <td>
+                            <a asp-area="" asp-controller="Home" asp-action="AddParticipant">Veuillez cliquer ici pour ajouter un participant..</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            apercu:
+        </div>
+    </div>
 </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#createTournement").click(function () {
+            $("#FirstHomeView").hide();
+            $("#SecondHomeView").show();
+        });
+
+        $(".participant").click(function () {
+            
+
+        });
+    });
+    
+</script>

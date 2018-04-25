@@ -12,6 +12,8 @@ namespace WebApplication.Controllers
     {
         public IActionResult Index()
         {
+            Participants participants = new Participants();
+            ViewData["Participants"] = participants.ObtenirListeParticipants();
             return View();
         }
 
@@ -26,6 +28,26 @@ namespace WebApplication.Controllers
         {
             ViewData["Message"] = "Your contact page.";
 
+            return View();
+        }
+
+        public IActionResult VoirParticipant(string id)
+        {
+            int numero = Convert.ToInt32(id);
+            Participants participants = new Participants();
+            Participant participant = participants.ObtenirListeParticipants().FirstOrDefault(p => p.numero == numero);
+            if(participant != null)
+            {
+                ViewData["Nom"] = participant.Nom;
+                ViewData["Prenom"] = participant.Prenom;
+                ViewData["numero"] = participant.numero;
+                return View();
+            }
+            return View();
+        }
+
+        public IActionResult AddParticipant()
+        {
             return View();
         }
 
