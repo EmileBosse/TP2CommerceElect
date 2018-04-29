@@ -13,7 +13,7 @@ namespace WebApplication.Controllers
         public IActionResult Index()
         {
             Participants participants = new Participants();
-            ViewData["Participants"] = participants.ObtenirListeParticipants();
+            ViewData["Participants"] = participants.ListeParticipants;
             return View();
         }
 
@@ -35,12 +35,12 @@ namespace WebApplication.Controllers
         {
             int numero = Convert.ToInt32(id);
             Participants participants = new Participants();
-            Participant participant = participants.ObtenirListeParticipants().FirstOrDefault(p => p.numero == numero);
+            Participant participant = participants.ListeParticipants.FirstOrDefault(p => p.Numero == numero);
             if(participant != null)
             {
                 ViewData["Nom"] = participant.Nom;
                 ViewData["Prenom"] = participant.Prenom;
-                ViewData["numero"] = participant.numero;
+                ViewData["numero"] = participant.Numero;
                 return View();
             }
             return View();

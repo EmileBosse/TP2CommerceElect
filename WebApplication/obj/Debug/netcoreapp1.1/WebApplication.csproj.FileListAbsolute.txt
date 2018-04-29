@@ -1,0 +1,6 @@
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp1.1\WebApplication.deps.json
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp1.1\WebApplication.runtimeconfig.json
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp1.1\WebApplication.runtimeconfig.dev.json
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp1.1\WebApplication.csprojResolveAssemblyReference.cache
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp1.1\WebApplication.csproj.CoreCompileInputs.cache
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp1.1\WebApplication.AssemblyInfo.cs

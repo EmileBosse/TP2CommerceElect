@@ -9,3 +9,14 @@ C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\
 C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.AssemblyInfo.cs
 C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.dll
 C:\Users\EmileBosse\Desktop\Lundi AM\tp2\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.pdb
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.deps.json
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.runtimeconfig.json
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.runtimeconfig.dev.json
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.dll
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\bin\Debug\netcoreapp2.0\WebApplication.pdb
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.csprojResolveAssemblyReference.cache
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.csproj.CoreCompileInputs.cache
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.AssemblyInfoInputs.cache
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.AssemblyInfo.cs
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.dll
+C:\Users\Jean\source\repos\TP2CommerceElect\WebApplication\obj\Debug\netcoreapp2.0\WebApplication.pdb

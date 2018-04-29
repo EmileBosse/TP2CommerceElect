@@ -1,0 +1,15 @@
+
+.vs/config/*
+.vs/WebApplication/v15/.suo
+.vs/WebApplication/v15/sqlite3/storage.ide
+WebApplication/obj/project.assets.json
+WebApplication/obj/WebApplication.csproj.nuget.cache
+WebApplication/bin/Debug/netcoreapp1.1/*
+
+*.cache
+
+WebApplication/obj/Debug/netcoreapp2.0/*
+WebApplication/obj/WebApplication.csproj.nuget.g.targets
+WebApplication/obj/WebApplication.csproj.nuget.g.props
+WebApplication/obj/WebApplication.csproj.nuget.cache
+WebApplication/obj/project.assets.json

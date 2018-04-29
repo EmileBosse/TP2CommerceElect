@@ -134,7 +134,7 @@
                     </tr>
                     @foreach (WebApplication.Models.Participant participant in ViewData["Participants"] as List<WebApplication.Models.Participant>)
                     {
-                        <tr><td><a asp-area="" asp-controller="Home" asp-action="VoirParticipant/@participant.numero">@participant.Nom @participant.Prenom</a><td/></tr>
+                        <tr><td><a asp-area="" asp-controller="Home" asp-action="VoirParticipant/@participant.Numero">@participant.Nom @participant.Prenom</a><td/></tr>
                     }
                     <tr class="participant">
                         <td>
