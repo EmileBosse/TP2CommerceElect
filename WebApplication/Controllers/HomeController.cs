@@ -35,12 +35,12 @@ namespace WebApplication.Controllers
         {
             int numero = Convert.ToInt32(id);
             Participants participants = new Participants();
-            Participant participant = participants.ListeParticipants.FirstOrDefault(p => p.Numero == numero);
+            Participant participant = participants.ListeParticipants.FirstOrDefault(p => p.Id == numero);
             if(participant != null)
             {
                 ViewData["Nom"] = participant.Nom;
                 ViewData["Prenom"] = participant.Prenom;
-                ViewData["numero"] = participant.Numero;
+                //ViewData["numero"] = participant.Numero;
                 return View();
             }
             return View();
@@ -48,6 +48,7 @@ namespace WebApplication.Controllers
 
         public IActionResult AddParticipant()
         {
+
             return View();
         }
 

@@ -114,9 +114,7 @@
         il faudra penser à une interface.<br />
         le caroussel<br />
         et le gros btn<br />
-        <button style="background-color:green;color:white" id="createTournement">
-            Créer votre premier tournoi !
-        </button>
+        <a class="btn btn-primary" asp-area="" asp-controller="Tournoi" asp-action="Index">Créer votre premier tournoi !</a>
     </div>
     <div id="SecondHomeView" hidden>
         <div class="row">
@@ -134,7 +132,7 @@
                     </tr>
                     @foreach (WebApplication.Models.Participant participant in ViewData["Participants"] as List<WebApplication.Models.Participant>)
                     {
-                        <tr><td><a asp-area="" asp-controller="Home" asp-action="VoirParticipant/@participant.Numero">@participant.Nom @participant.Prenom</a><td/></tr>
+                        <tr><td><a asp-area="" asp-controller="Home" asp-action="VoirParticipant/@participant.Id">@participant.Nom @participant.Prenom</a><td/></tr>
                     }
                     <tr class="participant">
                         <td>

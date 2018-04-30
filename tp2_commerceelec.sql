@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  Dim 29 avr. 2018 à 14:32
+-- Généré le :  lun. 30 avr. 2018 à 02:49
 -- Version du serveur :  5.7.19-log
 -- Version de PHP :  5.6.31
 
@@ -31,7 +31,6 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `participant`;
 CREATE TABLE IF NOT EXISTS `participant` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `numero` int(11) NOT NULL,
   `nom` varchar(255) NOT NULL,
   `prenom` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -41,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `participant` (
 -- Déchargement des données de la table `participant`
 --
 
-INSERT INTO `participant` (`id`, `numero`, `nom`, `prenom`) VALUES
-(1, 1, 'Bossé', 'Émile'),
-(2, 2, 'Biras', 'Jean');
+INSERT INTO `participant` (`id`, `nom`, `prenom`) VALUES
+(1, 'Bossé', 'Émile'),
+(2, 'Biras', 'Jean');
 
 -- --------------------------------------------------------
 
@@ -59,6 +58,13 @@ CREATE TABLE IF NOT EXISTS `participertournoi` (
   PRIMARY KEY (`idParticipant`,`idTournoi`),
   KEY `idTournoi` (`idTournoi`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `participertournoi`
+--
+
+INSERT INTO `participertournoi` (`idParticipant`, `idTournoi`, `numero`) VALUES
+(2, 1, 1);
 
 -- --------------------------------------------------------
 

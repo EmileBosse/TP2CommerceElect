@@ -5,11 +5,7 @@ using System.Threading.Tasks;
 
 namespace WebApplication.Models
 {
-    public class Participant
+    public class ParticiperTournois
     {
-        public int Id { get; set; }
-        public string Nom { get; set; }
-        public string Prenom { get; set; }
-
     }
 }

@@ -30,9 +30,8 @@ namespace WebApplication.Models
                     participants.Add(new Participant
                     {
                         Id = reader.GetInt32(0),
-                        Numero = reader.GetInt32(1),
-                        Nom = reader.GetString(2),
-                        Prenom = reader.GetString(3)
+                        Nom = reader.GetString(1),
+                        Prenom = reader.GetString(2)
                     });
                 }
             }
