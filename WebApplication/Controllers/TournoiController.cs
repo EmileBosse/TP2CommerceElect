@@ -21,6 +21,11 @@ namespace WebApplication.Controllers
         // GET: Tournoi/Details/5
         public ActionResult Details(int id)
         {
+            Tournois tournois = new Tournois();
+            Tournoi t = tournois.ObtenirTournoi(id);
+            ViewData["Id"] = t.Id;
+            ViewData["Nom"] = t.Nom;
+            ViewData["typeTournoi"] = t.TypeTournoi.Nom;
             return View();
         }
 

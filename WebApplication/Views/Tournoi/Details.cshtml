@@ -14,13 +14,19 @@
             @Html.DisplayNameFor(model => model.Id)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Id)
+            @ViewData["Id"]
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.Nom)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.Nom)
+            @ViewData["Nom"]
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeTournoi)
+        </dt>
+        <dd>
+            @ViewData["typeTournoi"]
         </dd>
     </dl>
 </div>

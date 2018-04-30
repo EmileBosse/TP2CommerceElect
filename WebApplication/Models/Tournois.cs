@@ -8,10 +8,41 @@ using WebApplication.Models.Database;
 namespace WebApplication.Models
 {
     public class Tournois : DataAccess
-    {
+    { 
         private List<Tournoi> _listeTournois;
 
         public List<Tournoi> ListeTournois => _listeTournois ?? (_listeTournois = ObtenirListeTournois());
+
+        public Tournoi ObtenirTournoi(int id)
+        {
+            Tournoi tournoi = null;
+            TypeTournois typeTournois = new TypeTournois();
+            MySqlCommand cmd = Connexion.CreateCommand();
+            cmd.CommandText = "Select * from tournoi where id = " + id;
+
+            try
+            {
+                Connexion.Open();
+                var reader = cmd.ExecuteReader();
+                while(reader.Read())
+                {
+                    tournoi = new Tournoi{
+                        Id = reader.GetInt32(0),
+                        Nom = reader.GetString(1),
+                        TypeTournoi = typeTournois.ListeTypeTournois.FirstOrDefault(t => t.Id == reader.GetInt32(2))
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Erreur :  {e.Message}");
+            }
+            finally
+            {
+                Connexion.Close();
+            }
+            return tournoi;
+        }
 
         private List<Tournoi> ObtenirListeTournois()
         {
