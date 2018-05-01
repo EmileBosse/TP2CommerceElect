@@ -9,53 +9,43 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace WebApplication.Controllers
 {
-    public class TournoiController : Controller
+    public class ParticiperTournoiController : Controller
     {
-        // GET: Tournoi
+        // GET: ParticiperTournoi
         public ActionResult Index()
         {
-            Tournois tournois = new Tournois();
-            ViewData["Tournois"] = tournois.ListeTournois;
             return View();
         }
 
-        // GET: Tournoi/Details/5
+        // GET: ParticiperTournoi/Details/5
         public ActionResult Details(int id)
         {
-            Tournois tournois = new Tournois();
-            Tournoi t = tournois.ObtenirTournoi(id);
-            ParticiperTournois participerTournois = new ParticiperTournois();
-            List<ParticiperTournoi> participants = new List<ParticiperTournoi>();
-            participants = participerTournois.ObtenirParticipantsByTournoi(id);
-            
-            ViewData["Id"] = t.Id;
-            ViewData["Nom"] = t.Nom;
-            ViewData["TypeTournoi"] = t.TypeTournoi.Nom;
-            ViewBag.Participants = participants;
             return View();
         }
 
-        // GET: Tournoi/Create
-        public ActionResult Create()
+        // GET: ParticiperTournoi/Create
+        public ActionResult Create(string id)
         {
-
-            TypeTournois typeTournois = new TypeTournois();
-            IEnumerable<SelectListItem> listeTypeTournois = typeTournois.ListeTypeTournois.Select(tt => new SelectListItem { Text = tt.Nom, Value = tt.Id.ToString()}).ToList();
-            ViewBag.TypesTournoi = listeTypeTournois;
-
+            int idTournoi = Convert.ToInt32(id);
+            Tournois tournois = new Tournois();
+            ParticiperTournois participerTournois = new ParticiperTournois();
+            Participants participants = new Participants();
+            ViewData["Tournoi"] = tournois.ListeTournois.FirstOrDefault(t => t.Id == idTournoi);
+            ViewBag.Participants = participants.ListeParticipants.Select(p => new SelectListItem { Value = p.Id.ToString(), Text = $"{p.Prenom} {p.Nom}" });
             return View();
         }
 
-        // POST: Tournoi/Create
+        // POST: ParticiperTournoi/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
         {
             try
             {
-                Tournois tournois = new Tournois();
-                tournois.InsererTournoi(collection["Nom"], Convert.ToInt32(collection["TypeTournoi"]));
-                return RedirectToAction(nameof(Index));
+                ParticiperTournois participerTournois = new ParticiperTournois();
+                participerTournois.AjouterParticipantTournoi(Convert.ToInt32(collection["Tournoi"]), Convert.ToInt32(collection["Participant"]), Convert.ToInt32(collection["Numero"]));
+
+                return RedirectToAction("Details", "Tournoi", new { id = Convert.ToInt32(collection["Tournoi"]) });
             }
             catch
             {
@@ -63,13 +53,13 @@ namespace WebApplication.Controllers
             }
         }
 
-        // GET: Tournoi/Edit/5
+        // GET: ParticiperTournoi/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: Tournoi/Edit/5
+        // POST: ParticiperTournoi/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -86,13 +76,13 @@ namespace WebApplication.Controllers
             }
         }
 
-        // GET: Tournoi/Delete/5
+        // GET: ParticiperTournoi/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: Tournoi/Delete/5
+        // POST: ParticiperTournoi/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

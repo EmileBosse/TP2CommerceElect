@@ -18,7 +18,8 @@ namespace WebApplication.Models
             Tournoi tournoi = null;
             TypeTournois typeTournois = new TypeTournois();
             MySqlCommand cmd = Connexion.CreateCommand();
-            cmd.CommandText = "Select * from tournoi where id = " + id;
+            cmd.CommandText = "Select * from tournoi where id = @id";
+            cmd.Parameters.AddWithValue("@id", id);
 
             try
             {
@@ -51,6 +52,7 @@ namespace WebApplication.Models
 
             MySqlCommand cmd = Connexion.CreateCommand();
             cmd.CommandText = "Select id, nom, idType from tournoi";
+            
 
             try
             {
@@ -77,6 +79,28 @@ namespace WebApplication.Models
             return tournois;
 
 
+        }
+
+        public void InsererTournoi(string nom, int idTypeTournoi)
+        {
+            MySqlCommand cmd = Connexion.CreateCommand();
+            cmd.CommandText = "Insert into tournoi (nom, idType) VALUES (@nom, @idType)";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@idType", idTypeTournoi);
+
+            try
+            {
+                Connexion.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Erreur :  {e.Message}");
+            }
+            finally
+            {
+                Connexion.Close();
+            }
         }
     }
 }

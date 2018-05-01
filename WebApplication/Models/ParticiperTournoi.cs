@@ -7,6 +7,10 @@ namespace WebApplication.Models
 {
     public class ParticiperTournoi
     {
+        public Tournoi Tournoi { get; set; }
 
+        public Participant Participant { get; set; }
+
+        public int Numero { get; set; }
     }
 }

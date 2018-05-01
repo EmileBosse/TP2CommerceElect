@@ -19,7 +19,7 @@ namespace WebApplication.Models
             List<Participant> participants = new List<Participant>();
 
             MySqlCommand cmd = Connexion.CreateCommand();
-            cmd.CommandText = "Select id, numero, nom, prenom from participant";
+            cmd.CommandText = "Select id, nom, prenom from participant";
 
             try
             {
@@ -48,23 +48,63 @@ namespace WebApplication.Models
 
         }
 
-            /*public List<Participant> ObtenirListeParticipants()
+        private Participant ObtenirParticipant(int id)
+        {
+            Participant participant = null;
+
+            MySqlCommand cmd = Connexion.CreateCommand();
+            cmd.CommandText = "Select id, nom, prenom from participant where id=@id";
+            cmd.Parameters.AddWithValue("@id", id);
+
+            try
             {
-                return new List<Participant> {
-                    new Participant{ Nom = "Bossé" , Prenom = "Émile", Numero = 1 },
-                    new Participant{ Nom = "Beaulieu" , Prenom = "Anthony", Numero = 2 },
-                    new Participant{ Nom = "Pelletier" , Prenom = "Samuel", Numero = 3 },
-                    new Participant{ Nom = "Arsenault" , Prenom = "Pascale", Numero = 4 },
-                    new Participant{ Nom = "Biras" , Prenom = "Jean", Numero = 5 },
-                    new Participant{ Nom = "Bourgoin" , Prenom = "Shawn", Numero = 6 },
-                    new Participant{ Nom = "Patoine" , Prenom = "Laura", Numero = 7 },
-                    new Participant{ Nom = "April" , Prenom = "Geneviève", Numero = 8 },
-                    new Participant{ Nom = "Garneau" , Prenom = "Patrique", Numero = 9 },
-                    new Participant{ Nom = "Létourneau" , Prenom = "Marcel", Numero = 10 },
-                    new Participant{ Nom = "Lepage" , Prenom = "James", Numero = 11 },
-                    new Participant{ Nom = "Tremblay" , Prenom = "Jeanot", Numero = 12 },
-                    new Participant{ Nom = "Veilleux" , Prenom = "Alexis", Numero = 13 }
-                };
-            }*/
+                Connexion.Open();
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    participant = new Participant
+                    {
+                        Id = reader.GetInt32(0),
+                        Nom = reader.GetString(1),
+                        Prenom = reader.GetString(2)
+                    };
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Erreur :  {e.Message}");
+            }
+            finally
+            {
+                Connexion.Close();
+            }
+            return participant;
+
+
         }
+
+
+        public void AjouterParticipant(string nom, string prenom)
+        {
+            MySqlCommand cmd = Connexion.CreateCommand();
+            cmd.CommandText = "Insert into participant (nom, prenom) VALUES (@nom, @prenom)";
+            cmd.Parameters.AddWithValue("@nom", nom);
+            cmd.Parameters.AddWithValue("@prenom", prenom);
+
+            try
+            {
+                Connexion.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Erreur :  {e.Message}");
+            }
+            finally
+            {
+                Connexion.Close();
+            }
+        }
+    }
+        
 }

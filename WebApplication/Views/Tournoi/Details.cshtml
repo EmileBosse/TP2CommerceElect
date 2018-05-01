@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Details";
+    List<ParticiperTournoi> participants = ViewBag.Participants;
 }
 
 <h2>Details</h2>
@@ -26,11 +27,30 @@
             @Html.DisplayNameFor(model => model.TypeTournoi)
         </dt>
         <dd>
-            @ViewData["typeTournoi"]
-        </dd>
+            @ViewData["TypeTournoi"]
+        </dd>       
     </dl>
 </div>
 <div>
+    <p>Participants</p>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Numero</th>
+        </tr>
+        @foreach (ParticiperTournoi pt in participants)
+        {
+            <tr>
+                <td>@pt.Participant.Nom</td>
+                <td>@pt.Participant.Prenom</td>
+                <td>@pt.Numero</td>
+            </tr>
+        }
+    </table>
+    <a class="btn btn-warning" asp-controller="ParticiperTournoi" asp-action="Create" asp-route-id="@ViewData["Id"]">Ajouter un participant</a>
+</div>
+<div>
     @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a asp-action="Index">Back to List</a>
+    <a class="btn btn-info" asp-action="Index">Back to List</a>
 </div>
