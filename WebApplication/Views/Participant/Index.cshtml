@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Participant";
+}
+
+<h2>Les participants</h2>
+<div class="row">
+
+    <div>
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Prénom</th>
+            </tr>
+            @foreach (WebApplication.Models.Participant participant in ViewData["Participants"] as List<WebApplication.Models.Participant>)
+            {
+                <tr><td>@participant.Nom<td /><td>@participant.Prenom</td><td><a class="btn btn-info" asp-area="" asp-controller="Participant" asp-action="Details/@participant.Id">Voir le participant</a></td></tr>
+            }
+            <tr class="participant">
+                <td>
+                    <a asp-area="" asp-controller="Participant" asp-action="Create" class="btn btn-success">Créer votre participant</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

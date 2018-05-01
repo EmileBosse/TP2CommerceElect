@@ -48,7 +48,7 @@ namespace WebApplication.Models
 
         }
 
-        private Participant ObtenirParticipant(int id)
+        public Participant ObtenirParticipant(int id)
         {
             Participant participant = null;
 

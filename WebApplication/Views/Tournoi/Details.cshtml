@@ -7,50 +7,80 @@
 
 <h2>Details</h2>
 
-<div>
-    <h4>Tournoi</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Id)
-        </dt>
-        <dd>
-            @ViewData["Id"]
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Nom)
-        </dt>
-        <dd>
-            @ViewData["Nom"]
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TypeTournoi)
-        </dt>
-        <dd>
-            @ViewData["TypeTournoi"]
-        </dd>       
-    </dl>
-</div>
-<div>
-    <p>Participants</p>
-    <table>
-        <tr>
-            <th>Nom</th>
-            <th>Prenom</th>
-            <th>Numero</th>
-        </tr>
-        @foreach (ParticiperTournoi pt in participants)
-        {
+<div class="col-md-6">
+    <div>
+        <h4>Tournoi</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd>
+                @ViewData["Id"]
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nom)
+            </dt>
+            <dd>
+                @ViewData["Nom"]
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TypeTournoi)
+            </dt>
+            <dd>
+                @ViewData["TypeTournoi"]
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <p>Participants</p>
+        <table>
             <tr>
-                <td>@pt.Participant.Nom</td>
-                <td>@pt.Participant.Prenom</td>
-                <td>@pt.Numero</td>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numero</th>
             </tr>
-        }
-    </table>
-    <a class="btn btn-warning" asp-controller="ParticiperTournoi" asp-action="Create" asp-route-id="@ViewData["Id"]">Ajouter un participant</a>
+            @foreach (ParticiperTournoi pt in participants)
+            {
+                <tr>
+                    <td>@pt.Participant.Nom</td>
+                    <td>@pt.Participant.Prenom</td>
+                    <td>@pt.Numero</td>
+                </tr>
+            }
+        </table>
+        <a class="btn btn-warning" asp-controller="ParticiperTournoi" asp-action="Create" asp-route-id="@ViewData["Id"]">Ajouter un participant</a>
+    </div>
+    <div>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        <a class="btn btn-info" asp-action="Index">Back to List</a>
+    </div>
 </div>
-<div>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    <a class="btn btn-info" asp-action="Index">Back to List</a>
+<div class="col-md-6">
+    @if (ViewData["typeTournoi"].Equals("Round Robin"))
+    {
+        <table>
+            <tr>
+                <td style="background-color:black;border:solid"></td>
+                @foreach (ParticiperTournoi pt2 in participants)
+                {
+                    <td style="border:solid">@pt2.Participant.Prenom @pt2.Participant.Nom</td>
+                }
+            </tr>
+            @foreach (ParticiperTournoi pt in participants)
+            {
+                <tr>
+                    <td style="border:solid">@pt.Participant.Prenom @pt.Participant.Nom</td>
+                    @foreach (ParticiperTournoi pt2 in participants)
+                    {
+                        @if (pt == pt2)
+                        {
+                            <td style="background-color:black;border:solid"></td>
+                        }
+                        <td style="border:solid"></td>
+                    }
+                </tr>
+            }
+        </table>
+    }
 </div>
